@@ -1,0 +1,13 @@
+{
+  "name": "ngx-blog",
+  "version": "0.0.1",
+  "main": "index.js",
+  "author": "Jason Hodges <jasonlhodges@gmail.com>",
+  "license": "MIT",
+  "scripts": {
+    "build": "webpack"
+  },
+  "devDependencies": {
+    "webpack": "^3.4.1"
+  }
+}
