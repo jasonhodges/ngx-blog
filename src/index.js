@@ -1,1 +1,0 @@
-console.log('%c*** Hello from index,js  ***', 'background-color:yellow;color:black;font-style:bold;', );
