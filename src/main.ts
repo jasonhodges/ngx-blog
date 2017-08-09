@@ -1,12 +1,10 @@
-import 'reflect-metadata';
-
-import { enableProdMode } from '@angular/core';
+// import 'reflect-metadata';
 import { platformBrowserDynamic } from '@angular/platform-browser-dynamic';
+import { enableProdMode } from '@angular/core';
 
 import { AppModule } from './app/app.module';
-import { environment } from './environments/environment';
 
-if (environment.production) {
+if (process.env.NODE_ENV === 'production') {
   enableProdMode();
 }
 

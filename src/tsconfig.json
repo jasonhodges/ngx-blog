@@ -1,24 +1,13 @@
 {
-  "angularCompilerOptions": {
-    "entryModule": "app/app.module#AppModule",
-    "genDir": "./ngfactory"
-  },
   "compilerOptions": {
-    "baseUrl": ".",
     "target": "es5",
-    "module": "es2015",
+    "module": "commonjs",
     "moduleResolution": "node",
     "sourceMap": true,
     "emitDecoratorMetadata": true,
     "experimentalDecorators": true,
-    "lib": [
-      "es2016",
-      "dom"
-    ],
+    "lib": ["es2015", "dom"],
     "noImplicitAny": true,
-    "skipLibCheck": true,
-    "importHelpers": true,
-    "rootDir": ".",
     "suppressImplicitAnyIndexErrors": true,
     "typeRoots": [
       "../node_modules/@types/"
