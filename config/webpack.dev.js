@@ -1,5 +1,6 @@
 var webpackMerge = require('webpack-merge');
 var ExtractTextPlugin = require('extract-text-webpack-plugin');
+var WebpackShellPlugin = require('webpack-shell-plugin');
 var commonConfig = require('./webpack.common.js');
 var helpers = require('./helpers');
 
@@ -14,7 +15,10 @@ module.exports = webpackMerge(commonConfig, {
   },
 
   plugins: [
-    new ExtractTextPlugin('[name].css')
+    new ExtractTextPlugin('[name].css'),
+    new WebpackShellPlugin({
+      onBuildStart: ['node ./config/dir-parse.js']
+    })
   ],
 
   devServer: {

@@ -1,7 +1,9 @@
 var webpack = require('webpack');
+var helpers = require('./helpers');
+
 var HtmlWebpackPlugin = require('html-webpack-plugin');
 var ExtractTextPlugin = require('extract-text-webpack-plugin');
-var helpers = require('./helpers');
+var WebpackShellPlugin = require('webpack-shell-plugin');
 
 module.exports = {
   entry: {
@@ -31,6 +33,14 @@ module.exports = {
       {
         test: /\.(png|jpe?g|gif|svg|woff|woff2|ttf|eot|ico)$/,
         loader: 'file-loader?name=assets/[name].[hash].[ext]'
+      },
+      {
+        test: /\.md$/,
+        loader: 'markdown-loader'
+      },
+      {
+        test: /\.json$/,
+        loader: 'file-loader?name=assets/[name].[hash].json'
       },
       {
         test: /\.css$/,
@@ -63,6 +73,11 @@ module.exports = {
 
     new HtmlWebpackPlugin({
       template: 'src/index.html'
+    }),
+
+    new WebpackShellPlugin({
+      onBuildStart: ['node ./config/dir-parse.js']
     })
+
   ]
 };

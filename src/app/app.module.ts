@@ -1,8 +1,8 @@
-import { HomeComponent } from './../home/home.component';
+import { PostsService } from '../services/posts.service';
+import { HomeComponent } from '../home/home.component';
 import { AppRoutingModule } from './app-routing.module';
 import { NgModule } from '@angular/core';
-import { BrowserModule  } from '@angular/platform-browser';
-import { Routes, RouterModule } from '@angular/router';
+import { BrowserModule } from '@angular/platform-browser';
 import { HttpModule } from '@angular/http';
 
 import { AppComponent } from './app.component';
@@ -11,13 +11,15 @@ import { AppComponent } from './app.component';
   imports: [
     BrowserModule,
     HttpModule,
-    AppRoutingModule
+    AppRoutingModule,
   ],
   declarations: [
     AppComponent,
     HomeComponent
   ],
-  providers: [],
+  providers: [
+    PostsService
+  ],
   bootstrap: [AppComponent],
 })
 export class AppModule { }

@@ -1,12 +1,21 @@
-import { Component } from '@angular/core';
+import { PostsService } from '../services/posts.service';
+import { Component, OnInit } from '@angular/core';
 
 @Component({
   selector: 'ngxb-home',
-  template: `
-    <div>
-      <h2>Home</h2>
-    </div>
-  `
+  templateUrl: './home.component.html'
 })
 
-export class HomeComponent {}
+export class HomeComponent implements OnInit {
+  posts: any;
+  constructor(public postsService: PostsService) {}
+
+  ngOnInit() {
+    this.postsService.getPosts().subscribe((p) => {
+      console.log('posts: ', p);
+     this.posts = p.posts;
+      console.log(this.posts);
+    });
+  }
+
+}
