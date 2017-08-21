@@ -1,4 +1,4 @@
-import { PostsService } from './../services/posts.service';
+import { PostsService } from '../services/posts.service';
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { HomeComponent } from './home.component';

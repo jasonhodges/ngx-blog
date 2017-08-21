@@ -1,4 +1,3 @@
-"use strict";
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -8,12 +7,12 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
-Object.defineProperty(exports, "__esModule", { value: true });
-var posts_service_1 = require("../services/posts.service");
-var core_1 = require("@angular/core");
+import { PostsService } from '../services/posts.service';
+import { Component } from '@angular/core';
 var HomeComponent = (function () {
-    function HomeComponent(postsService) {
+    function HomeComponent(postsService, md) {
         this.postsService = postsService;
+        this.md = md;
     }
     HomeComponent.prototype.ngOnInit = function () {
         var _this = this;
@@ -23,14 +22,17 @@ var HomeComponent = (function () {
             console.log(_this.posts);
         });
     };
+    HomeComponent.prototype.updateOutput = function (mdText) {
+        this.convertedText = this.md.convert(mdText);
+    };
     return HomeComponent;
 }());
 HomeComponent = __decorate([
-    core_1.Component({
+    Component({
         selector: 'ngxb-home',
         templateUrl: './home.component.html'
     }),
-    __metadata("design:paramtypes", [posts_service_1.PostsService])
+    __metadata("design:paramtypes", [PostsService, PostsService])
 ], HomeComponent);
-exports.HomeComponent = HomeComponent;
+export { HomeComponent };
 //# sourceMappingURL=home.component.js.map

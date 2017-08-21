@@ -1,28 +1,29 @@
-var webpack = require('webpack');
-var helpers = require('./helpers');
-
-var HtmlWebpackPlugin = require('html-webpack-plugin');
-var ExtractTextPlugin = require('extract-text-webpack-plugin');
-var WebpackShellPlugin = require('webpack-shell-plugin');
+const webpack = require('webpack');
+const helpers = require('./helpers');
+const marked = require('marked');
+const times = require('lodash/times');
+const HtmlWebpackPlugin = require('html-webpack-plugin');
+const ExtractTextPlugin = require('extract-text-webpack-plugin');
+const WebpackShellPlugin = require('webpack-shell-plugin');
+const LoopMarkdownPlugin = require('../config/LoopMarkdown');
 
 module.exports = {
   entry: {
-    'polyfills': './src/polyfills.ts',
-    'vendor': './src/vendor.ts',
-    'app': './src/main.ts'
+    'polyfills': helpers.root('src', 'polyfills.ts'),
+    'vendor': helpers.root('src', 'vendor.ts'),
+    'app': helpers.root('src', 'main.ts')
   },
-
   resolve: {
     extensions: ['.ts', '.js']
   },
-
   module: {
-    rules: [{
+    rules: [
+      {
         test: /\.ts$/,
         loaders: [{
-            loader: 'awesome-typescript-loader',
-            options: { configFileName: helpers.root('src', 'tsconfig.json') }
-          },
+          loader: 'awesome-typescript-loader',
+          options: { configFileName: helpers.root('src', 'tsconfig.json') }
+        },
           'angular2-template-loader'
         ]
       },
@@ -35,21 +36,33 @@ module.exports = {
         loader: 'file-loader?name=assets/[name].[hash].[ext]'
       },
       {
-        test: /\.md$/,
-        loader: 'markdown-loader'
-      },
-      {
         test: /\.json$/,
         loader: 'file-loader?name=assets/[name].[hash].json'
       },
       {
-        test: /\.css$/,
-        exclude: helpers.root('src', 'app'),
-        loader: ExtractTextPlugin.extract({
-          fallbackLoader: 'style-loader',
-          loader: 'css-loader?sourceMap'
-        })
+        test: /\.scss$/,
+        exclude: /node_modules/,
+        loaders: ['raw-loader', 'sass-loader']
       },
+      // {
+      //   test: /\.scss$/,
+      //   use: extractSass.extract({
+      //     use: [{
+      //       loader: 'css-loader'
+      //     }, {
+      //       loader: 'sass-loader'
+      //     }],
+      //     fallback: 'style-loader'
+      //   })
+      // },
+      // {
+      //   test: /\.css$/,
+      //   exclude: helpers.root('src', 'app'),
+      //   loader: ExtractTextPlugin.extract({
+      //     fallbackLoader: 'style-loader',
+      //     loader: 'css-loader?sourceMap'
+      //   })
+      // },
       {
         test: /\.css$/,
         include: helpers.root('src', 'app'),
@@ -59,6 +72,7 @@ module.exports = {
   },
 
   plugins: [
+
     // Workaround for angular/angular#11580
     new webpack.ContextReplacementPlugin(
       // The (\\|\/) piece accounts for path separators in *nix and Windows
@@ -72,11 +86,15 @@ module.exports = {
     }),
 
     new HtmlWebpackPlugin({
-      template: 'src/index.html'
+      template: helpers.root('src', 'index.html')
     }),
 
     new WebpackShellPlugin({
       onBuildStart: ['node ./config/dir-parse.js']
+    }),
+
+    new LoopMarkdownPlugin({
+      name: 'My Awesome Loop Markdown Plugin'
     })
 
   ]

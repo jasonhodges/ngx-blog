@@ -1,8 +1,11 @@
-var webpackMerge = require('webpack-merge');
-var ExtractTextPlugin = require('extract-text-webpack-plugin');
-var WebpackShellPlugin = require('webpack-shell-plugin');
-var commonConfig = require('./webpack.common.js');
-var helpers = require('./helpers');
+const webpack = require('webpack');
+const helpers = require('./helpers');
+const times = require('lodash/times');
+const webpackMerge = require('webpack-merge');
+const ExtractTextPlugin = require('extract-text-webpack-plugin');
+const WebpackShellPlugin = require('webpack-shell-plugin');
+const commonConfig = require('./webpack.common.js');
+
 
 module.exports = webpackMerge(commonConfig, {
   devtool: 'cheap-module-eval-source-map',
@@ -15,7 +18,6 @@ module.exports = webpackMerge(commonConfig, {
   },
 
   plugins: [
-    new ExtractTextPlugin('[name].css'),
     new WebpackShellPlugin({
       onBuildStart: ['node ./config/dir-parse.js']
     })

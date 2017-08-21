@@ -4,6 +4,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { HttpModule } from '@angular/http';
+import { MarkdownToHtmlModule } from 'ng2-markdown-to-html';
 
 import { AppComponent } from './app.component';
 
@@ -12,6 +13,7 @@ import { AppComponent } from './app.component';
     BrowserModule,
     HttpModule,
     AppRoutingModule,
+    MarkdownToHtmlModule.forRoot()
   ],
   declarations: [
     AppComponent,

@@ -1,5 +1,6 @@
 import { PostsService } from '../services/posts.service';
 import { Component, OnInit } from '@angular/core';
+import * as marked from 'marked';
 
 @Component({
   selector: 'ngxb-home',
@@ -8,7 +9,8 @@ import { Component, OnInit } from '@angular/core';
 
 export class HomeComponent implements OnInit {
   posts: any;
-  constructor(public postsService: PostsService) {}
+  convertedText: string;
+  constructor(public postsService: PostsService, public md: PostsService) {}
 
   ngOnInit() {
     this.postsService.getPosts().subscribe((p) => {
@@ -16,6 +18,10 @@ export class HomeComponent implements OnInit {
      this.posts = p.posts;
       console.log(this.posts);
     });
+  }
+
+  updateOutput(mdText: string) {
+    this.convertedText = this.md.convert(mdText);
   }
 
 }
