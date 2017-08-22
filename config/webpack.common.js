@@ -44,25 +44,6 @@ module.exports = {
         exclude: /node_modules/,
         loaders: ['raw-loader', 'sass-loader']
       },
-      // {
-      //   test: /\.scss$/,
-      //   use: extractSass.extract({
-      //     use: [{
-      //       loader: 'css-loader'
-      //     }, {
-      //       loader: 'sass-loader'
-      //     }],
-      //     fallback: 'style-loader'
-      //   })
-      // },
-      // {
-      //   test: /\.css$/,
-      //   exclude: helpers.root('src', 'app'),
-      //   loader: ExtractTextPlugin.extract({
-      //     fallbackLoader: 'style-loader',
-      //     loader: 'css-loader?sourceMap'
-      //   })
-      // },
       {
         test: /\.css$/,
         include: helpers.root('src', 'app'),
@@ -91,10 +72,6 @@ module.exports = {
 
     new WebpackShellPlugin({
       onBuildStart: ['node ./config/dir-parse.js']
-    }),
-
-    new LoopMarkdownPlugin({
-      name: 'My Awesome Loop Markdown Plugin'
     })
 
   ]

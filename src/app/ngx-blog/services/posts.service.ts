@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import { Http, Response } from '@angular/http';
 import * as marked from 'marked';
 
-const postsUrl = require('../assets/_posts/posts.json');
+const postsUrl = require('../../../assets/_posts/posts.json');
 
 @Injectable()
 export class PostsService {

@@ -15,4 +15,3 @@ import 'rxjs';
 import * as marked from 'marked';
 
 import 'reflect-metadata';
-

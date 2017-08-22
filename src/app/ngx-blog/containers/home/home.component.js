@@ -7,7 +7,7 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
-import { PostsService } from '../services/posts.service';
+import { PostsService } from '../../services/posts.service';
 import { Component } from '@angular/core';
 var HomeComponent = (function () {
     function HomeComponent(postsService, md) {
@@ -15,15 +15,9 @@ var HomeComponent = (function () {
         this.md = md;
     }
     HomeComponent.prototype.ngOnInit = function () {
-        var _this = this;
-        this.postsService.getPosts().subscribe(function (p) {
-            console.log('posts: ', p);
-            _this.posts = p.posts;
-            console.log(_this.posts);
-        });
-    };
-    HomeComponent.prototype.updateOutput = function (mdText) {
-        this.convertedText = this.md.convert(mdText);
+        // this.postsService.getPosts().subscribe((p) => {
+        //  this.posts = p.posts;
+        // });
     };
     return HomeComponent;
 }());

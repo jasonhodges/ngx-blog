@@ -1,34 +1,56 @@
 // https://code-maven.com/list-content-of-directory-with-nodejs
-var fs = require('fs');
-var path = require('path');
-var jsonfile = require('jsonfile');
-var postsjson = 'src/assets/_posts/posts.json';
-var dir = 'src/assets/_posts';
+// https://github.com/jxson/front-matter <- consider for yaml front matter parsing
+const fs = require('fs');
+const fm = require('front-matter');
+const path = require('path');
+const jsonfile = require('jsonfile');
+const postsjson = 'src/assets/_posts/posts.json';
+const dir = 'src/assets/_posts';
 
-// if (process.argv.length <= 2) {
-//   console.log("Usage: " + __filename + " path/to/directory");
-//   process.exit(-1);
-// }
-var extFilter = 'md';
-// var pathSupplied = process.argv[2];
-var pathSupplied = dir;
+const extFilter = 'md';
+const pathSupplied = dir;
 
 function extension(element) {
-  var extName = path.extname(element);
+  const extName = path.extname(element);
   return extName === '.' + extFilter;
-};
+}
 
-fs.readdir(pathSupplied, function(err, items) {
-  var opener = '{ "posts": ';
-  var closer = ' }';
-  var posts = items.filter(extension).map((item) => {
-    var file = pathSupplied + '/' + item;
-    var obj = { title: file };
-    return obj;
-  })
+/**
+ * cycle through directory for files
+ */
+fs.readdir(pathSupplied, function (err, items) {
+  let opener = '{ "posts": ';
+  let closer = ' }';
+  let posts = [];
+  let file = '';
+  let fileContent = '';
+  let content = '';
+  let body = '';
+  let attributes = {};
+  let title = '';
+  let description = '';
+  /**
+   * cycle over items, filtering for files matching extension
+   * @type {Array}
+   */
+  posts = items.filter(extension).map((item) => {
+    file = pathSupplied + '/' + item;
+    fileContent = fs.readFileSync(file, 'utf8');
+    content = fm(fileContent);
+    console.log('*** content ***\n', content);
+    body = content.body;
+    attributes =  content.attributes;
+    title = attributes.title;
+    description = attributes.description;
+
+    return {
+      file: file,
+      title: title,
+      description: description
+    };
+  });
 
   opener += JSON.stringify(posts);
   opener += closer;
-  console.log("Posts: ", JSON.stringify(posts));
   fs.writeFile(postsjson, opener);
 });

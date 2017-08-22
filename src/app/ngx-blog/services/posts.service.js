@@ -10,7 +10,7 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 import { Injectable } from '@angular/core';
 import { Http } from '@angular/http';
 import * as marked from 'marked';
-var postsUrl = require('../assets/_posts/posts.json');
+var postsUrl = require('../../../assets/_posts/posts.json');
 var PostsService = (function () {
     function PostsService(http) {
         this.http = http;

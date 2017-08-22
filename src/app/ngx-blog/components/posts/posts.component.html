@@ -1,0 +1,8 @@
+<section>
+  <ng-container *ngFor='let post of posts'>
+    <article markdown-to-html [src]="post.file" class="posts-card" >
+      <h2>{{posts.title}}</h2>
+      <span>{{posts.description}}</span>
+    </article>
+  </ng-container>
+</section>

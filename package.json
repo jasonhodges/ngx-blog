@@ -41,6 +41,7 @@
     "@angular/upgrade": "~4.3.1",
     "angular-in-memory-web-api": "~0.3.2",
     "core-js": "^2.4.1",
+    "front-matter": "^2.1.2",
     "highlightjs": "^9.10.0",
     "jsonfile": "^3.0.1",
     "marked": "^0.3.6",
