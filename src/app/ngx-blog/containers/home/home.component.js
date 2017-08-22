@@ -16,7 +16,7 @@ var HomeComponent = (function () {
     }
     HomeComponent.prototype.ngOnInit = function () {
         // this.postsService.getPosts().subscribe((p) => {
-        //  this.posts = p.posts;
+        //  this.post = p.post;
         // });
     };
     return HomeComponent;

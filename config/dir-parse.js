@@ -4,7 +4,7 @@ const fs = require('fs');
 const fm = require('front-matter');
 const path = require('path');
 const jsonfile = require('jsonfile');
-const postsjson = 'src/assets/_posts/posts.json';
+const postsjson = 'src/assets/_posts/post.json';
 const dir = 'src/assets/_posts';
 
 const extFilter = 'md';
@@ -19,7 +19,7 @@ function extension(element) {
  * cycle through directory for files
  */
 fs.readdir(pathSupplied, function (err, items) {
-  let opener = '{ "posts": ';
+  let opener = '{ "post": ';
   let closer = ' }';
   let posts = [];
   let file = '';
@@ -46,7 +46,8 @@ fs.readdir(pathSupplied, function (err, items) {
     return {
       file: file,
       title: title,
-      description: description
+      description: description,
+      body: body
     };
   });
 

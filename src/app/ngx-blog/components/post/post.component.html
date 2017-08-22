@@ -1,0 +1,14 @@
+<section>
+  <ng-container *ngFor='let post of mainPosts'>
+    <!--<article markdown-to-html [src]="post.file" class="post-card" >-->
+      <!--<h2>{{post.title}}</h2>-->
+      <!--<span>{{post.description}}</span>-->
+    <!--</article>-->
+    <article ngxb-posts [src]="post.file" class="posts-card" >
+      <h2>{{post.title}}</h2>
+      <!--<span>{{post.description}}</span>-->
+      <!--<div>{{post.body}}</div>-->
+      {{post.body}}
+    </article>
+  </ng-container>
+</section>
