@@ -12,6 +12,7 @@ import { PostsService } from '../../services/posts.service';
 import * as marked from 'marked';
 import * as Prism from 'prismjs';
 import 'prismjs/prism';
+import 'prismjs/components/prism-bash';
 import 'prismjs/components/prism-c';
 import 'prismjs/components/prism-cpp';
 import 'prismjs/components/prism-csharp';
@@ -69,7 +70,8 @@ var PostComponent = (function () {
         });
     };
     PostComponent.prototype.handleRaw = function (raw) {
-        var markdown = this.prepare(raw);
+        // const markdown = this.prepare(raw);
+        var markdown = raw;
         this.element.nativeElement.innerHTML = marked(markdown);
         Prism.highlightAll(false);
     };

@@ -12,17 +12,22 @@ export class PostsComponent implements OnInit {
   constructor(public postsService: PostsService) { }
 
   ngOnInit() {
-    this.postsService.getPosts().subscribe((p) => {
+    this.postsService.getPosts().subscribe((e) => {
       debugger;
-console.log('%c*** COMP: PostsComponent | function ngOnInit ***', 'background-color: blue;color:white;font-style:bold;', p)
-      p.posts.map((t: any) => {
+console.log('%c*** COMP: PostsComponent | function ngOnInit ***', 'background-color: blue;color:white;font-style:bold;', e)
+      e.entries.map((p: any) => {
+  this.tap(p, 'p: ');
         this.mainPosts.push({
-          title: t.title,
-          file: t.file,
-          body: this.postsService.convert(t.body)
+          title: p.post.attributes.title,
+          body: p.post.body
         });
       });
 console.log('%c*** COMP: PostsComponent | function ngOnInit ***', 'background-color: blue;color:white;font-style:bold;', this.mainPosts)
     });
   }
+
+  tap(x: any, w?: string) {
+    console.log(`%c  ${ w ? w : '*****'}`, 'background-color:yellow;color:black;font-style:bold;padding-right: 20px;', x);
+    return x;
+  };
 }

@@ -4,6 +4,7 @@ import * as marked from 'marked';
 import * as Prism from 'prismjs';
 
 import 'prismjs/prism';
+import 'prismjs/components/prism-bash';
 import 'prismjs/components/prism-c';
 import 'prismjs/components/prism-cpp';
 import 'prismjs/components/prism-csharp';
@@ -79,7 +80,8 @@ export class PostComponent implements OnInit, OnChanges, AfterViewInit {
   }
 
   handleRaw(raw: string) {
-    const markdown = this.prepare(raw);
+    // const markdown = this.prepare(raw);
+    const markdown = raw;
     this.element.nativeElement.innerHTML = marked(markdown);
     Prism.highlightAll(false);
   }

@@ -16,19 +16,24 @@ var PostsComponent = (function () {
     }
     PostsComponent.prototype.ngOnInit = function () {
         var _this = this;
-        this.postsService.getPosts().subscribe(function (p) {
+        this.postsService.getPosts().subscribe(function (e) {
             debugger;
-            console.log('%c*** COMP: PostsComponent | function ngOnInit ***', 'background-color: blue;color:white;font-style:bold;', p);
-            p.posts.map(function (t) {
+            console.log('%c*** COMP: PostsComponent | function ngOnInit ***', 'background-color: blue;color:white;font-style:bold;', e);
+            e.entries.map(function (p) {
+                _this.tap(p, 'p: ');
                 _this.mainPosts.push({
-                    title: t.title,
-                    file: t.file,
-                    body: _this.postsService.convert(t.body)
+                    title: p.post.attributes.title,
+                    body: p.post.body
                 });
             });
             console.log('%c*** COMP: PostsComponent | function ngOnInit ***', 'background-color: blue;color:white;font-style:bold;', _this.mainPosts);
         });
     };
+    PostsComponent.prototype.tap = function (x, w) {
+        console.log("%c  " + (w ? w : '*****'), 'background-color:yellow;color:black;font-style:bold;padding-right: 20px;', x);
+        return x;
+    };
+    ;
     return PostsComponent;
 }());
 PostsComponent = __decorate([
