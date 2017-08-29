@@ -1,0 +1,11 @@
+<ng-container *ngFor='let post of mainPosts'>
+  <article class="posts-card">
+    <ngxb-post [src]="'src/app/ngx-blog/components/posts/posts.component.html'"></ngxb-post>
+  </article>
+  <article>
+    {{post.title}}
+    <ngxb-post>
+      {{post.body}}
+    </ngxb-post>
+  </article>
+</ng-container>

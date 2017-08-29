@@ -11,3 +11,7 @@ import 'rxjs';
 
 // Other vendors for example jQuery, Lodash or Bootstrap
 // You can import js, ts, css, sass, ...
+
+import * as marked from 'marked';
+
+import 'reflect-metadata';
