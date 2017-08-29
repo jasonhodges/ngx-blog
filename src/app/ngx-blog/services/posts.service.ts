@@ -15,17 +15,12 @@ export class PostsService {
 
     this.md.setOptions({
       gfm: true,
-      breaks: true,
-      // highlight: function (code: any) {
-      //   return require('highlightjs').highlightAuto(code).value;
-      // }
+      breaks: true
     });
   }
 
   convert(markdown: string) {
-    debugger;
     let raw = markdown.replace(/"/g, '');
-    // this.prepare(raw);
     return this.md(raw);
   }
 
@@ -62,7 +57,6 @@ export class PostsService {
   }
 
   extractData(response: Response) {
-    debugger;
     return response.text() || '';
   }
 

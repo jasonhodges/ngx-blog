@@ -36,7 +36,6 @@ var PostComponent = (function () {
             return;
         }
         if (this.src) {
-            console.log('src: \n', this.src);
             this.handleSrc();
             return;
         }
@@ -44,11 +43,11 @@ var PostComponent = (function () {
     };
     // SimpleChanges parameter is required for AoT compilation (do not remove)
     PostComponent.prototype.ngOnChanges = function (changes) {
-        if ('data' in changes) {
+        if (changes.data) {
             this.handleData();
             return;
         }
-        if ('src' in changes) {
+        if (changes.src) {
             this.handleSrc();
             return;
         }
@@ -70,7 +69,6 @@ var PostComponent = (function () {
         });
     };
     PostComponent.prototype.handleRaw = function (raw) {
-        // const markdown = this.prepare(raw);
         var markdown = raw;
         this.element.nativeElement.innerHTML = marked(markdown);
         Prism.highlightAll(false);
@@ -108,7 +106,6 @@ __decorate([
 PostComponent = __decorate([
     Component({
         selector: 'ngxb-post, [ngxb-post]',
-        // templateUrl: 'post.component.html',
         template: "\n    <ng-content></ng-content>",
         encapsulation: ViewEncapsulation.None,
         styleUrls: [

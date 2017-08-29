@@ -19,7 +19,6 @@ import 'prismjs/components/prism-typescript';
 
 @Component({
   selector: 'ngxb-post, [ngxb-post]',
-  // templateUrl: 'post.component.html',
   template: `
     <ng-content></ng-content>`,
   encapsulation: ViewEncapsulation.None,
@@ -35,7 +34,7 @@ export class PostComponent implements OnInit, OnChanges, AfterViewInit {
   constructor(public postsService: PostsService,
               public element: ElementRef) { }
 
-  ngOnInit() {  }
+  ngOnInit() { }
 
   ngAfterViewInit() {
     if (this.data) {
@@ -43,7 +42,6 @@ export class PostComponent implements OnInit, OnChanges, AfterViewInit {
       return;
     }
     if (this.src) {
-      console.log('src: \n', this.src);
       this.handleSrc();
       return;
     }
@@ -52,11 +50,11 @@ export class PostComponent implements OnInit, OnChanges, AfterViewInit {
 
   // SimpleChanges parameter is required for AoT compilation (do not remove)
   ngOnChanges(changes: SimpleChanges) {
-    if ('data' in changes) {
+    if (changes.data) {
       this.handleData();
       return;
     }
-    if ('src' in changes) {
+    if (changes.src) {
       this.handleSrc();
       return;
     }
@@ -80,7 +78,6 @@ export class PostComponent implements OnInit, OnChanges, AfterViewInit {
   }
 
   handleRaw(raw: string) {
-    // const markdown = this.prepare(raw);
     const markdown = raw;
     this.element.nativeElement.innerHTML = marked(markdown);
     Prism.highlightAll(false);

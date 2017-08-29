@@ -18,13 +18,11 @@ var PostsService = (function () {
         this.md = marked;
         this.md.setOptions({
             gfm: true,
-            breaks: true,
+            breaks: true
         });
     }
     PostsService.prototype.convert = function (markdown) {
-        debugger;
         var raw = markdown.replace(/"/g, '');
-        // this.prepare(raw);
         return this.md(raw);
     };
     PostsService.prototype.prepare = function (raw) {
@@ -57,7 +55,6 @@ var PostsService = (function () {
             .catch(this.handleError);
     };
     PostsService.prototype.extractData = function (response) {
-        debugger;
         return response.text() || '';
     };
     PostsService.prototype.handleError = function (error) {
