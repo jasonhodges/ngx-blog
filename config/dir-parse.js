@@ -37,7 +37,6 @@ fs.readdir(pathSupplied, function (err, items) {
       file = pathSupplied + '/' + item;
       fileContent = fs.readFileSync(file, 'utf8');
       content = fm(fileContent);
-      console.log('*** content ***\n', content);
       body = content.body;
       attributes = content.attributes;
       title = attributes.title;
@@ -46,12 +45,6 @@ fs.readdir(pathSupplied, function (err, items) {
       return {
         post: content
       };
-      // return {
-      //   file: file,
-      //   title: title,
-      //   description: description,
-      //   body: body
-      // };
     });
 
   opener += JSON.stringify(posts);
