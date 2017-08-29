@@ -7,9 +7,11 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 import { HomeComponent } from './ngx-blog/containers/home/home.component';
 import { RouterModule } from '@angular/router';
 import { NgModule } from '@angular/core';
+import { PostComponent } from './ngx-blog/components/post/post.component';
 var routes = [
     { path: '', redirectTo: '/home', pathMatch: 'full' },
-    { path: 'home', component: HomeComponent }
+    { path: 'home', component: HomeComponent },
+    { path: 'blog', component: PostComponent }
 ];
 var AppRoutingModule = (function () {
     function AppRoutingModule() {
