@@ -16,6 +16,7 @@ export class PostsComponent implements OnInit {
       e.entries.map((p: any) => {
         this.mainPosts.push({
           title: p.post.attributes.title,
+          description: p.post.attributes.description,
           body: p.post.body
         });
       });
