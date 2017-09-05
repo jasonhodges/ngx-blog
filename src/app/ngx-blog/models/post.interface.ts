@@ -1,6 +1,10 @@
 interface Post {
-  type: string;
-  title: string;
-  description: string;
+  attributes: {
+    title: string,
+    description: string,
+    urlTitle: string,
+    id: number
+  };
   body: any;
+  frontmatter: any;
 }

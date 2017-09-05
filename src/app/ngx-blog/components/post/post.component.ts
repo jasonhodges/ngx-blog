@@ -1,5 +1,6 @@
 import { AfterViewInit, Component, ElementRef, Input, OnChanges, OnInit, SimpleChanges, ViewEncapsulation } from '@angular/core';
 import { PostsService } from '../../services/posts.service';
+import 'rxjs/add/operator/switchMap';
 import * as marked from 'marked';
 import * as Prism from 'prismjs';
 
@@ -17,6 +18,10 @@ import 'prismjs/components/prism-sass';
 import 'prismjs/components/prism-scss';
 import 'prismjs/components/prism-typescript';
 
+/**
+ * post.component
+ * component for ngxb-post
+ */
 @Component({
   selector: 'ngxb-post, [ngxb-post]',
   template: `
@@ -31,10 +36,12 @@ export class PostComponent implements OnInit, OnChanges, AfterViewInit {
   @Input() data: string;
   @Input() src: string;
 
+  post: any;
+
   constructor(public postsService: PostsService,
               public element: ElementRef) { }
 
-  ngOnInit() { }
+  ngOnInit() {}
 
   ngAfterViewInit() {
     if (this.data) {

@@ -26,6 +26,11 @@
     "test:once": "karma start karma.conf.js --single-run"
   },
   "keywords": [],
+  "config": {
+    "commitizen": {
+      "path": "./node_modules/cz-conventional-changelog"
+    }
+  },
   "dependencies": {
     "@angular/animations": "~4.3.1",
     "@angular/common": "~4.3.1",

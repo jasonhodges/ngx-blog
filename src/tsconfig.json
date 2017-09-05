@@ -15,7 +15,8 @@
     "types": [
       "node",
       "prismjs",
-      "marked"
+      "marked",
+      "rxjs"
     ]
   },
   "compileOnSave": true,

@@ -1,12 +1,14 @@
 import { HomeComponent } from './ngx-blog/containers/home/home.component';
 import { RouterModule, Routes } from '@angular/router';
 import { NgModule } from '@angular/core';
-import { PostComponent } from './ngx-blog/components/post/post.component';
+import { PostsComponent } from './ngx-blog/components/posts/posts.component';
+import { BlogComponent } from './ngx-blog/components/blog/blog.component';
 
 const routes: Routes = [
   { path: '', redirectTo: '/home', pathMatch: 'full' },
   { path: 'home', component: HomeComponent },
-  { path: 'posts', component: PostComponent }
+  { path: 'posts', component: PostsComponent },
+  { path: 'blog/:id', component: BlogComponent }
 ];
 
 @NgModule({

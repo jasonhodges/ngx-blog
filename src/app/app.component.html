@@ -2,10 +2,13 @@
   <img src="../assets/images/angular.png">
 </main>
 <nav>
-  <a routerLink="home" routerLinkActive="active">Home</a>
+  <a routerLink="/"
+     routerLinkActive="active"
+     [routerLinkActiveOptions]="{exact: true}">Home</a>
   <a routerLink="posts" routerLinkActive="active">Posts</a>
+  <a routerLink="blog/:id" routerLinkActive="active">Blog</a>
 </nav>
 <router-outlet
-  (activate)="onActivate($event)"
-  (deactivate)="onDeactivate($event)">
+    (activate)="onActivate($event)"
+    (deactivate)="onDeactivate($event)">
 </router-outlet>

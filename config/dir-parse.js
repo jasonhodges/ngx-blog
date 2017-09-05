@@ -1,5 +1,7 @@
 // https://code-maven.com/list-content-of-directory-with-nodejs
 // https://github.com/jxson/front-matter <- consider for yaml front matter parsing
+const cloneDeep = require('lodash');
+
 const fs = require('fs');
 const fm = require('front-matter');
 const path = require('path');
@@ -26,14 +28,18 @@ fs.readdir(pathSupplied, function (err, items) {
     fileContent = '',
     content = '',
     body = '',
+    id = -1,
     attributes = {},
     title = '',
-    description = '';
+    description = '',
+    tempTitle = '',
+    urlTitle = '',
+    re = /[\W]+/g;
     /**
      * cycle over items, filtering for files matching extension
      * @type {Array}
      */
-    posts = items.filter(extension).map((item) => {
+    posts = items.filter(extension).map((item, i) => {
       file = pathSupplied + '/' + item;
       fileContent = fs.readFileSync(file, 'utf8');
       content = fm(fileContent);
@@ -41,13 +47,16 @@ fs.readdir(pathSupplied, function (err, items) {
       attributes = content.attributes;
       title = attributes.title;
       description = attributes.description;
-
+      tempTitle = cloneDeep(attributes.title);
+      content.attributes.urlTitle = tempTitle.replace(re, '-');
+      content.attributes.id = i;
       return {
         post: content
       };
     });
 
-  opener += JSON.stringify(posts);
-  opener += closer;
+  // opener += JSON.stringify(posts);
+  // opener += closer;
+  opener = JSON.stringify(posts);
   fs.writeFile(postsjson, opener);
 });

@@ -19,6 +19,6 @@ export class PostModule {
   static forChild(): ModuleWithProviders {
     return {
       ngModule: PostModule,
-    }
+    };
   }
 }

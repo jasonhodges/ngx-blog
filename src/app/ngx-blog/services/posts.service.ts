@@ -2,8 +2,10 @@ import { Injectable } from '@angular/core';
 import { Http, Response } from '@angular/http';
 import * as marked from 'marked';
 import { Observable } from 'rxjs/Observable';
+import 'rxjs/add/operator/map';
 
 const postsUrl = require('../../../assets/_posts/posts.json');
+let postsPromise = Promise.resolve(postsUrl);
 
 @Injectable()
 export class PostsService {
@@ -48,6 +50,10 @@ export class PostsService {
   getPosts() {
     this.content = this.http.get(postsUrl).map((res: Response) => res.json());
     return this.content;
+  }
+
+  getPost(id: number | string): Observable<Post> {
+    return this.getPosts().map((posts: any) => posts.find((p: any) => p.post.attributes.id === id));
   }
 
   getSource(src: string) {

@@ -3,9 +3,7 @@ import { NgModule } from '@angular/core';
 
 @NgModule({
   imports: [ ],
-  declarations: [
-  ],
-  providers: [
-  ]
+  declarations: [ ],
+  providers: [ ]
 })
 export class HomeModule { }

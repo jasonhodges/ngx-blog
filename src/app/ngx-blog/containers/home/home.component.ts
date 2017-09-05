@@ -1,6 +1,5 @@
 import { PostsService } from '../../services/posts.service';
 import { Component, OnInit } from '@angular/core';
-import { tap } from '../../../../../config/util';
 
 @Component({
   selector: 'ngxb-home',
@@ -9,9 +8,8 @@ import { tap } from '../../../../../config/util';
 
 export class HomeComponent implements OnInit {
   posts: any;
-  convertedText: string;
 
-  constructor(public postsService: PostsService, public md: PostsService) {}
+  constructor(public md: PostsService) {}
 
   ngOnInit() {
   }
