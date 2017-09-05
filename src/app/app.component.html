@@ -5,8 +5,8 @@
   <a routerLink="/"
      routerLinkActive="active"
      [routerLinkActiveOptions]="{exact: true}">Home</a>
-  <a routerLink="posts" routerLinkActive="active">Posts</a>
-  <a routerLink="blog/:id" routerLinkActive="active">Blog</a>
+  <a routerLink="posts"
+     routerLinkActive="active">Posts</a>
 </nav>
 <router-outlet
     (activate)="onActivate($event)"

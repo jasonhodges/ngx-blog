@@ -27,9 +27,7 @@ import 'prismjs/components/prism-typescript';
   template: `
     <ng-content></ng-content>`,
   encapsulation: ViewEncapsulation.None,
-  styleUrls: [
-    'theme.scss'
-  ]
+  styleUrls: [ 'theme.scss' ]
 })
 
 export class PostComponent implements OnInit, OnChanges, AfterViewInit {

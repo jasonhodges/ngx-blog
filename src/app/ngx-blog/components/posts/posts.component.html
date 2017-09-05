@@ -1,8 +1,6 @@
+<span>Posts</span>
 <ng-container *ngFor='let post of mainPosts'>
-  <article class="posts-card">
-    <ngxb-post [src]="'src/app/ngx-blog/components/posts/posts.component.html'"></ngxb-post>
-  </article>
-  <article class="posts-card" (click)="onSelect(post.id)">
+  <article class="posts-card" (click)="onSelect(post)">
     <span class="posts-card--title">{{post.id}} | {{post.title}} | {{post.description}}</span>
     <ngxb-post>
       {{post.body}}

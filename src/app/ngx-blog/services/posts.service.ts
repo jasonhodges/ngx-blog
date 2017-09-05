@@ -5,7 +5,6 @@ import { Observable } from 'rxjs/Observable';
 import 'rxjs/add/operator/map';
 
 const postsUrl = require('../../../assets/_posts/posts.json');
-let postsPromise = Promise.resolve(postsUrl);
 
 @Injectable()
 export class PostsService {
@@ -53,7 +52,7 @@ export class PostsService {
   }
 
   getPost(id: number | string): Observable<Post> {
-    return this.getPosts().map((posts: any) => posts.find((p: any) => p.post.attributes.id === id));
+    return this.getPosts().map((posts: any) => posts.find((p: any) => p.post.attributes.urlTitle === id));
   }
 
   getSource(src: string) {
