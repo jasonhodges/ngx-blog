@@ -17,6 +17,9 @@
       "prismjs",
       "marked",
       "rxjs"
+    ],
+    "styles": [
+
     ]
   },
   "compileOnSave": true,

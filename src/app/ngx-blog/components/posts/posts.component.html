@@ -1,5 +1,5 @@
 <span>Posts</span>
-<ng-container *ngFor='let post of mainPosts'>
+<ng-container *ngFor='let post of postsList'>
   <article class="posts-card" (click)="onSelect(post)">
     <span class="posts-card--title">{{post.id}} | {{post.title}} | {{post.description}}</span>
     <ngxb-post>

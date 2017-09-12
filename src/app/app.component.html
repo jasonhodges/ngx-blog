@@ -1,14 +1,16 @@
-<main>
-  <img src="../assets/images/angular.png">
-</main>
-<nav>
-  <a routerLink="/"
-     routerLinkActive="active"
-     [routerLinkActiveOptions]="{exact: true}">Home</a>
-  <a routerLink="posts"
-     routerLinkActive="active">Posts</a>
-</nav>
+<header>
+  <div class="header-logo"></div>
+  <nav>
+    <a routerLink="/"
+       routerLinkActive="active"
+       [routerLinkActiveOptions]="{exact: true}">Home</a>
+    <a routerLink="posts"
+       routerLinkActive="active">Posts</a>
+  </nav>
+</header>
 <router-outlet
     (activate)="onActivate($event)"
     (deactivate)="onDeactivate($event)">
 </router-outlet>
+
+<footer></footer>
