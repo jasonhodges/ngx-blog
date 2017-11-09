@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { PostsService } from '../../services/posts.service';
 import { Router } from '@angular/router';
 
@@ -8,6 +8,7 @@ import { Router } from '@angular/router';
 })
 
 export class PostsComponent implements OnInit {
+  @Input() showBody: boolean;
   postsList: any = [];
 
   constructor(public postsService: PostsService, private _router: Router) { }

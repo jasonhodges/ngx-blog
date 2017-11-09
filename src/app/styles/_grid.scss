@@ -4,7 +4,7 @@
   grid-template-rows: 
   [header-start] 0.5fr 
   [main-start] 6fr 
-  [footer-start] minmax(10%, 1fr);
+  [footer-start] minmax(5%, 1fr);
   grid-template-areas: "header" "main" "footer";
 }
 
@@ -14,13 +14,16 @@
             "header header header"
             ". main ."
             "footer footer footer";
-    grid-template-rows: 1fr 8fr 2fr;
+    grid-template-rows: 1fr 8fr 1fr;
     grid-template-columns: 1fr 8fr 1fr;
   }
 }
 
 header { grid-area: header; }
 
-ngxb-home, ngxb-posts, ngxb-blog { grid-area: main; }
+ngxb-home, ngxb-posts, ngxb-blog { 
+  grid-area: main; 
+  justify-content: space-evenly;
+}
 
 footer { grid-area: footer; }

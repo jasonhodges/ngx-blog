@@ -10,6 +10,7 @@
     "build:upgrade": "tsc",
     "build:watch": "tsc -p src/ -w",
     "commit": "git-cz",
+    "compodoc": "~/.npm-packages/bin/compodoc -p src/tsconfig.json",
     "copy-dist-files": "node ./copy-dist-files.js",
     "e2e": "ng e2e",
     "i18n": "ng-xi18n",

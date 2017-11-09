@@ -1,9 +1,9 @@
 section.posts-section {
-//   display: grid;
-//   grid: repeat(2, 40px) / auto-flow 300px;
+
   ngxb-posts {
-//     width: 600px;
-//     height: 200px;
+    display: grid;
+    grid-template-columns: 30% 30% 30%;
+    grid-gap: 10px;
   }
 }
 

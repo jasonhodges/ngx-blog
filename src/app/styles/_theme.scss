@@ -1,0 +1,59 @@
+/* Fonts */
+@import url('https://fonts.googleapis.com/css?family=Rubik|Trirong');
+$base-font-family: 'Trirong', serif;
+$headline-font-family: 'Rubik', sans-serif;
+
+$base-font-size: 16px;
+$base-font-weight: 300;
+$small_base-font-size: $base-font-size * 0.875;
+$base-line-height: 1.5;
+
+
+
+/* Colors */
+$color-primary-1: #424242;
+$color-light-1: #eee;
+$color-shadow: rgba(90,90,90,0.4);
+$text-color: $color-light-1;
+$background-color: $color-primary-1;
+
+/* Height & Width */
+$height-body: 100vh;
+$height-app: 100%;
+$height-header: 70px;
+$height-footer: 60px;
+$content-width: 800px;
+$on-mobile: 600px;
+$on-tablet: 700px;
+
+// Using media queries with like this:
+// @include media-query($on-palm) {
+//     .wrapper {
+//         padding-right: $spacing-unit / 2;
+//         padding-left: $spacing-unit / 2;
+//     }
+// }
+@mixin media-query($device) {
+  @media screen and (max-width: $device) {
+    @content;
+  }
+}
+
+/* Images */
+// $logo url needs to be relative to app.scss
+$logo: url('../assets/images/angular.png');
+
+
+/* Basic styling */
+body {
+  font: $base-font-weight #{$base-font-size}/#{$base-line-height} $base-font-family;
+  color: $text-color;
+  background-color: $background-color;
+  -webkit-text-size-adjust: 100%;
+  -webkit-font-feature-settings: "kern" 1;
+  -moz-font-feature-settings: "kern" 1;
+  -o-font-feature-settings: "kern" 1;
+  font-feature-settings: "kern" 1;
+  font-kerning: normal;
+  text-rendering: optimizeLegibility;
+}

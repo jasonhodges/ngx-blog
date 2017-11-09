@@ -1,8 +1,11 @@
-<span>Posts</span>
 <ng-container *ngFor='let post of postsList'>
   <article class="posts-card" (click)="onSelect(post)">
-    <span class="posts-card--title">{{post.id}} | {{post.title}} | {{post.description}}</span>
-    <ngxb-post>
+    <h2 class="posts-card--title">
+      <div>{{post.title}}</div>
+    </h2>
+    <hr>
+    <span>{{post.description}}</span>
+    <ngxb-post *ngIf="showBody">
       {{post.body}}
     </ngxb-post>
   </article>
