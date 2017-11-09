@@ -7,6 +7,7 @@ import { CommonModule } from '@angular/common';
 import { PostsComponent } from './components/posts/posts.component';
 import { PostModule } from './components/post/post.module';
 import { BlogComponent } from './components/blog/blog.component';
+import { AboutComponent } from './components/about/about.component';
 
 export const ROUTES: Routes = [
   { path: '', component: HomeComponent }
@@ -20,9 +21,10 @@ export const ROUTES: Routes = [
   ],
   exports: [],
   declarations: [
+    AboutComponent,
+    BlogComponent,
     HomeComponent,
     PostsComponent,
-    BlogComponent
   ],
   providers: [
     PostsService
