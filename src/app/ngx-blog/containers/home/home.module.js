@@ -8,14 +8,14 @@ import { NgModule } from '@angular/core';
 var HomeModule = (function () {
     function HomeModule() {
     }
+    HomeModule = __decorate([
+        NgModule({
+            imports: [],
+            declarations: [],
+            providers: []
+        })
+    ], HomeModule);
     return HomeModule;
 }());
-HomeModule = __decorate([
-    NgModule({
-        imports: [],
-        declarations: [],
-        providers: []
-    })
-], HomeModule);
 export { HomeModule };
 //# sourceMappingURL=home.module.js.map

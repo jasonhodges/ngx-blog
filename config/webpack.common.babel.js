@@ -63,28 +63,25 @@ module.exports = function(options) {
      * See: http://webpack.github.io/docs/configuration.html#module
      */
     module: {
-      rules: [
-        {
+      rules: [{
           test: /\.js$/,
           exclude: /node_modules/,
-          use: [
-            {
-              loader: 'babel-loader',
-              options: {
-                presets: ['es2015', {'modules': false}]
-              }
+          use: [{
+            loader: 'babel-loader',
+            options: {
+              presets: ['es2015', { 'modules': false }]
             }
-          ]
+          }]
         },
         {
           test: /\.ts$/,
           loaders: [{
-            loader: 'awesome-typescript-loader',
-            options: {
-              configFileName: helpers.root('src', 'tsconfig.json'),
-              useCache: !isProd
-            }
-          },
+              loader: 'awesome-typescript-loader',
+              options: {
+                configFileName: helpers.root('src', 'tsconfig.json'),
+                useCache: !isProd
+              }
+            },
             'angular2-template-loader'
           ]
         },
@@ -104,8 +101,8 @@ module.exports = function(options) {
           test: /\.(css|scss)$/,
           exclude: /node_modules/,
           use: [
-            'to-string-loader',
-            'style-loader',
+            { loader: 'to-string-loader' },
+            { loader: 'style-loader' },
             {
               loader: 'css-loader',
               options: {
@@ -126,7 +123,7 @@ module.exports = function(options) {
       // Workaround for angular/angular#11580
       new webpack.ContextReplacementPlugin(
         // The (\\|\/) piece accounts for path separators in *nix and Windows
-        /angular(\\|\/)core(\\|\/)@angular/,
+        /angular([\\\/])core([\\\/])@angular/,
         helpers.root('./src'), // location of your src
         {} // a map of your routes
       ),

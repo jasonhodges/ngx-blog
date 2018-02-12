@@ -1,38 +1,49 @@
-@import 'normalize.css';
-@import 'styles/theme';
-@import 'styles/grid';
+@import "normalize.css";
+@import "styles/theme";
+@import "styles/grid";
 
-body { height: $height-body; }
+body {
+  height: $height-body;
+}
 
-ngxb-app { height: $height-app; }
+:host {
+  all: unset;
+}
+
+ngxb-app {
+  height: $height-app;
+}
 
 // Container styles
-.container { }
+ngxb-app.container {
+  all: unset;
+}
 
 // Header styles
 $header-logo: $logo;
 $header-height: $height-header;
 $header-bgColor: $color-light-1;
-
 header {
   background-color: $header-bgColor;
+  height: $header-height;
   .header-logo {
     height: $header-height;
     width: $header-height;
-    background: {
-      image: $header-logo;
-      size: contain;
-    }
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-image: $header-logo;
+  }
+  nav {
+    align-self: center;
   }
 }
 
-
 // Posts styles
 .posts-card {
-    box-shadow: 2px 3px 2px 1px rgba(0, 0, 0, 0.5);
-    border: 1px solid #3c3b3b;
-    position: relative;
-    padding: 4px;
+  box-shadow: 1px 2px 1px 0.5px rgba(0, 0, 0, 0.5);
+  border: 1px solid #3c3b3b;
+  position: relative;
+  padding: 8x;
   &--title {
     position: inherit;
     font-family: "Rubik", sans-serif;
@@ -54,7 +65,7 @@ header {
   }
   div {
     line-height: 1.1;
-    font-size: 24px!important;
+    font-size: 24px !important;
     letter-spacing: 0;
     font-weight: 700;
   }
@@ -65,4 +76,10 @@ $footer-height: $height-footer;
 $footer-bgColor: $color-primary-1;
 footer {
   background-color: $footer-bgColor;
+}
+
+pre::after {
+  content: "";
+  display: table;
+  clear: both;
 }

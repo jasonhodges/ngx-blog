@@ -7,32 +7,44 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
 import { PostsService } from '../../services/posts.service';
+import { Router } from '@angular/router';
 var PostsComponent = (function () {
-    function PostsComponent(postsService) {
+    function PostsComponent(postsService, _router) {
         this.postsService = postsService;
-        this.mainPosts = [];
+        this._router = _router;
+        this.postsList = [];
     }
     PostsComponent.prototype.ngOnInit = function () {
         var _this = this;
         this.postsService.getPosts().subscribe(function (e) {
-            e.entries.map(function (p) {
-                _this.mainPosts.push({
+            e.map(function (p) {
+                _this.postsList.push({
+                    id: p.post.attributes.id,
                     title: p.post.attributes.title,
+                    urlTitle: p.post.attributes.urlTitle,
+                    description: p.post.attributes.description,
                     body: p.post.body
                 });
             });
         });
     };
+    PostsComponent.prototype.onSelect = function (id) {
+        this._router.navigate(["/blog", id.urlTitle]);
+    };
+    __decorate([
+        Input(),
+        __metadata("design:type", Boolean)
+    ], PostsComponent.prototype, "showBody", void 0);
+    PostsComponent = __decorate([
+        Component({
+            selector: 'ngxb-posts',
+            templateUrl: 'posts.component.html'
+        }),
+        __metadata("design:paramtypes", [PostsService, Router])
+    ], PostsComponent);
     return PostsComponent;
 }());
-PostsComponent = __decorate([
-    Component({
-        selector: 'ngxb-posts',
-        templateUrl: 'posts.component.html'
-    }),
-    __metadata("design:paramtypes", [PostsService])
-], PostsComponent);
 export { PostsComponent };
 //# sourceMappingURL=posts.component.js.map

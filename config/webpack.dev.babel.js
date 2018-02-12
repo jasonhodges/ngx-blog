@@ -123,6 +123,7 @@ module.exports = function(options) {
       port: METADATA.port,
       host: METADATA.host,
       public: METADATA.public,
+      watchContentBase: true,
       watchOptions: {
         ignored: /node_modules/
       }

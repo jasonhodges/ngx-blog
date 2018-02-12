@@ -7,25 +7,18 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
-import { PostsService } from '../../services/posts.service';
 import { Component } from '@angular/core';
-var HomeComponent = (function () {
-    function HomeComponent(md) {
-        this.md = md;
+var AboutComponent = (function () {
+    function AboutComponent() {
     }
-    HomeComponent.prototype.ngOnInit = function () {
-    };
-    HomeComponent = __decorate([
+    AboutComponent = __decorate([
         Component({
-            selector: 'ngxb-home',
-            templateUrl: './home.component.html',
-            styleUrls: [
-                './home.component.scss'
-            ]
+            selector: 'ngxb-about',
+            templateUrl: './about.component.html'
         }),
-        __metadata("design:paramtypes", [PostsService])
-    ], HomeComponent);
-    return HomeComponent;
+        __metadata("design:paramtypes", [])
+    ], AboutComponent);
+    return AboutComponent;
 }());
-export { HomeComponent };
-//# sourceMappingURL=home.component.js.map
+export { AboutComponent };
+//# sourceMappingURL=about.component.js.map

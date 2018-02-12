@@ -5,7 +5,6 @@ import { tap } from '../../config/util';
 @Component({
   selector: 'ngxb-app',
   templateUrl: './app.component.html',
-  encapsulation: ViewEncapsulation.None,
   styleUrls: ['./app.scss']
 })
 export class AppComponent implements OnInit {

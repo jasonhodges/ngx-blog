@@ -11,6 +11,7 @@ import { Injectable } from '@angular/core';
 import { Http, Response } from '@angular/http';
 import * as marked from 'marked';
 import { Observable } from 'rxjs/Observable';
+import 'rxjs/add/operator/map';
 var postsUrl = require('../../../assets/_posts/posts.json');
 var PostsService = (function () {
     function PostsService(http) {
@@ -49,6 +50,9 @@ var PostsService = (function () {
         this.content = this.http.get(postsUrl).map(function (res) { return res.json(); });
         return this.content;
     };
+    PostsService.prototype.getPost = function (id) {
+        return this.getPosts().map(function (posts) { return posts.find(function (p) { return p.post.attributes.urlTitle === id; }); });
+    };
     PostsService.prototype.getSource = function (src) {
         return this.http.get(src)
             .map(this.extractData)
@@ -70,11 +74,11 @@ var PostsService = (function () {
         console.error(errMsg);
         return Observable.throw(errMsg);
     };
+    PostsService = __decorate([
+        Injectable(),
+        __metadata("design:paramtypes", [Http])
+    ], PostsService);
     return PostsService;
 }());
-PostsService = __decorate([
-    Injectable(),
-    __metadata("design:paramtypes", [Http])
-], PostsService);
 export { PostsService };
 //# sourceMappingURL=posts.service.js.map

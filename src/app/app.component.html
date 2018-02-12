@@ -1,18 +1,7 @@
-<header>
-  <div class="header-logo"></div>
-  <nav>
-    <a routerLink="/"
-       routerLinkActive="active"
-       [routerLinkActiveOptions]="{exact: true}">Home</a>
-    <a routerLink="posts"
-       routerLinkActive="active">Posts</a>
-    <a routerLink="about"
-       routerLinkActive="active">About</a>
-  </nav>
-</header>
+<ngxb-header></ngxb-header>
 <router-outlet
     (activate)="onActivate($event)"
     (deactivate)="onDeactivate($event)">
 </router-outlet>
 
-<footer></footer>
+<ngxb-footer></ngxb-footer>

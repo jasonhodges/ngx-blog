@@ -9,6 +9,7 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 };
 import { Component, ElementRef, Input, ViewEncapsulation } from '@angular/core';
 import { PostsService } from '../../services/posts.service';
+import 'rxjs/add/operator/switchMap';
 import * as marked from 'marked';
 import * as Prism from 'prismjs';
 import 'prismjs/prism';
@@ -24,6 +25,10 @@ import 'prismjs/components/prism-python';
 import 'prismjs/components/prism-sass';
 import 'prismjs/components/prism-scss';
 import 'prismjs/components/prism-typescript';
+/**
+ * post.component
+ * component for ngxb-post
+ */
 var PostComponent = (function () {
     function PostComponent(postsService, element) {
         this.postsService = postsService;
@@ -93,27 +98,25 @@ var PostComponent = (function () {
                 : line;
         }).join('\n');
     };
+    __decorate([
+        Input(),
+        __metadata("design:type", String)
+    ], PostComponent.prototype, "data", void 0);
+    __decorate([
+        Input(),
+        __metadata("design:type", String)
+    ], PostComponent.prototype, "src", void 0);
+    PostComponent = __decorate([
+        Component({
+            selector: 'ngxb-post, [ngxb-post]',
+            template: "\n    <ng-content></ng-content>\n    ",
+            encapsulation: ViewEncapsulation.None,
+            styleUrls: ['theme.scss']
+        }),
+        __metadata("design:paramtypes", [PostsService,
+            ElementRef])
+    ], PostComponent);
     return PostComponent;
 }());
-__decorate([
-    Input(),
-    __metadata("design:type", String)
-], PostComponent.prototype, "data", void 0);
-__decorate([
-    Input(),
-    __metadata("design:type", String)
-], PostComponent.prototype, "src", void 0);
-PostComponent = __decorate([
-    Component({
-        selector: 'ngxb-post, [ngxb-post]',
-        template: "\n    <ng-content></ng-content>",
-        encapsulation: ViewEncapsulation.None,
-        styleUrls: [
-            'theme.scss'
-        ]
-    }),
-    __metadata("design:paramtypes", [PostsService,
-        ElementRef])
-], PostComponent);
 export { PostComponent };
 //# sourceMappingURL=post.component.js.map

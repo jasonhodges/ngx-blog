@@ -25,7 +25,8 @@ import 'prismjs/components/prism-typescript';
 @Component({
   selector: 'ngxb-post, [ngxb-post]',
   template: `
-    <ng-content></ng-content>`,
+    <ng-content></ng-content>
+    `,
   encapsulation: ViewEncapsulation.None,
   styleUrls: [ 'theme.scss' ]
 })

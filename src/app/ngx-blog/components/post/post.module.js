@@ -7,9 +7,10 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 import { NgModule } from '@angular/core';
 import { PostComponent } from './post.component';
 import { PostsService } from '../../services/posts.service';
-var PostModule = PostModule_1 = (function () {
+var PostModule = (function () {
     function PostModule() {
     }
+    PostModule_1 = PostModule;
     PostModule.forRoot = function () {
         return {
             ngModule: PostModule_1,
@@ -21,16 +22,16 @@ var PostModule = PostModule_1 = (function () {
             ngModule: PostModule_1,
         };
     };
+    PostModule = PostModule_1 = __decorate([
+        NgModule({
+            imports: [],
+            exports: [PostComponent],
+            declarations: [PostComponent],
+            providers: [],
+        })
+    ], PostModule);
     return PostModule;
+    var PostModule_1;
 }());
-PostModule = PostModule_1 = __decorate([
-    NgModule({
-        imports: [],
-        exports: [PostComponent],
-        declarations: [PostComponent],
-        providers: [],
-    })
-], PostModule);
 export { PostModule };
-var PostModule_1;
 //# sourceMappingURL=post.module.js.map

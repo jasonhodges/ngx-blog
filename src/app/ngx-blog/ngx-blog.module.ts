@@ -1,9 +1,11 @@
 import { NgModule } from '@angular/core';
-import { MarkdownToHtmlModule } from 'ng2-markdown-to-html';
-import { HomeComponent } from './containers/home/home.component';
+import { FlexLayoutModule } from '@angular/flex-layout';
 import { Routes } from '@angular/router';
-import { PostsService } from './services/posts.service';
 import { CommonModule } from '@angular/common';
+import { MarkdownToHtmlModule } from 'ng2-markdown-to-html';
+
+import { HomeComponent } from './containers/home/home.component';
+import { PostsService } from './services/posts.service';
 import { PostsComponent } from './components/posts/posts.component';
 import { PostModule } from './components/post/post.module';
 import { BlogComponent } from './components/blog/blog.component';
@@ -17,7 +19,8 @@ export const ROUTES: Routes = [
   imports: [
     CommonModule,
     PostModule.forRoot(),
-    MarkdownToHtmlModule.forRoot()
+    MarkdownToHtmlModule.forRoot(),
+    FlexLayoutModule
   ],
   exports: [],
   declarations: [

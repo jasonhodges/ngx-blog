@@ -7,22 +7,28 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 import { HomeComponent } from './ngx-blog/containers/home/home.component';
 import { RouterModule } from '@angular/router';
 import { NgModule } from '@angular/core';
-import { PostComponent } from './ngx-blog/components/post/post.component';
+import { PostsComponent } from './ngx-blog/components/posts/posts.component';
+import { BlogComponent } from './ngx-blog/components/blog/blog.component';
+import { AboutComponent } from './ngx-blog/components/about/about.component';
 var routes = [
     { path: '', redirectTo: '/home', pathMatch: 'full' },
+    { path: 'about', component: AboutComponent },
     { path: 'home', component: HomeComponent },
-    { path: 'blog', component: PostComponent }
+    { path: 'posts', component: PostsComponent },
+    { path: 'blog/:urlTitle', component: BlogComponent }
 ];
 var AppRoutingModule = (function () {
     function AppRoutingModule() {
     }
+    AppRoutingModule = __decorate([
+        NgModule({
+            imports: [
+                RouterModule.forRoot(routes, { enableTracing: false })
+            ],
+            exports: [RouterModule]
+        })
+    ], AppRoutingModule);
     return AppRoutingModule;
 }());
-AppRoutingModule = __decorate([
-    NgModule({
-        imports: [RouterModule.forRoot(routes)],
-        exports: [RouterModule]
-    })
-], AppRoutingModule);
 export { AppRoutingModule };
 //# sourceMappingURL=app-routing.module.js.map

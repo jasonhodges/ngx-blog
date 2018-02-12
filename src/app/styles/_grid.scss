@@ -1,29 +1,29 @@
-.container {
-  display: grid;
-  grid-gap: 4px;
-  grid-template-rows: 
-  [header-start] 0.5fr 
-  [main-start] 6fr 
-  [footer-start] minmax(5%, 1fr);
-  grid-template-areas: "header" "main" "footer";
-}
-
-@media (min-width: 700px) {
-  .container {
-    grid-template-areas:
-            "header header header"
-            ". main ."
-            "footer footer footer";
-    grid-template-rows: 1fr 8fr 1fr;
-    grid-template-columns: 1fr 8fr 1fr;
-  }
-}
-
-header { grid-area: header; }
-
-ngxb-home, ngxb-posts, ngxb-blog { 
-  grid-area: main; 
-  justify-content: space-evenly;
-}
-
-footer { grid-area: footer; }
+//.container {
+//  display: grid;
+//  grid-gap: 4px;
+//  grid-template-rows:
+//  [header-start] 0.5fr
+//  [main-start] 6fr
+//  [footer-start] minmax(5%, 1fr);
+//  grid-template-areas: "header" "main" "footer";
+//}
+//
+//@media (min-width: 700px) {
+//  .container {
+//    grid-template-areas:
+//            "header header header"
+//            ". main ."
+//            "footer footer footer";
+//    grid-template-rows: 1fr 8fr 1fr;
+//    grid-template-columns: 1fr 8fr 1fr;
+//  }
+//}
+//
+//header { grid-area: header; }
+//
+//ngxb-home, ngxb-posts, ngxb-blog {
+//  grid-area: main;
+//  justify-content: space-evenly;
+//}
+//
+//footer { grid-area: footer; }

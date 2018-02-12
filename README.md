@@ -14,3 +14,4 @@ Run development server:
 Project Plan:
  - [] About page
  - [] Disqus comments
+ - [] Angular Flex Layout (https://github.com/angular/angular-cli/wiki/stories-include-angular-flex)

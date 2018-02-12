@@ -1,3 +1,11 @@
-<section class="posts-section">
-  <ngxb-posts [showBody]="false"></ngxb-posts>
-</section>
+<ng-container>
+  <section class="posts-section">
+    <ngxb-posts [showBody]="false"
+                fxLayout="column"
+                fxFlex="80"
+                fxFlexOffset="10"
+                fxLayoutAlign="space-around"
+                fxLayoutGap="16px"
+                fxLayout.xs="column"></ngxb-posts>
+  </section>
+</ng-container>
